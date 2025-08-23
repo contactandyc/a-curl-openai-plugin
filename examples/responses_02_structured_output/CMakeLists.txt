@@ -1,16 +1,20 @@
 # SPDX-FileCopyrightText: 2025 Andy Curtis <contactandyc@gmail.com>
 # SPDX-License-Identifier: Apache-2.0
+#
+# SPDX-FileComment: This project is an independent library for interacting with the OpenAI API.
+# It is not affiliated with, endorsed by, or sponsored by OpenAI.
+# "OpenAI" and related marks are trademarks of OpenAI OpCo, LLC.
 
 cmake_minimum_required(VERSION 3.20)
 
 # A small "apps" project that builds example/demo binaries.
-project(an-openai-api-library_responses_02_structured_output LANGUAGES C)
+project(a-curl-openai-plugin_responses_02_structured_output LANGUAGES C)
 
 # Optional math lib on POSIX
 find_library(M_LIB m)
 
 # Bring in suite-level dependencies derived by the renderer
-find_package(an_openai_api_library CONFIG REQUIRED)
+find_package(a_curl_openai_plugin CONFIG REQUIRED)
 
 # ---- Binaries ----
 add_executable(structured_single_object  src/structured_single_object.c)
@@ -28,7 +32,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_single_object PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_single_object PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -59,7 +63,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_array PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_array PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -90,7 +94,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_nested PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_nested PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -121,7 +125,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_chain_single_followup PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_chain_single_followup PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -152,7 +156,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_chain_parallel_followup PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_chain_parallel_followup PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -183,7 +187,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_validation_error PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_validation_error PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -214,7 +218,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_contact_form PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_contact_form PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -245,7 +249,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_calendar_event PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_calendar_event PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -276,7 +280,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_invoice_line_items PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_invoice_line_items PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -307,7 +311,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_moderation_report PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_moderation_report PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -338,7 +342,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_ui_tree PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_ui_tree PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -369,7 +373,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_search_query PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_search_query PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -400,7 +404,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_options_with_null PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_options_with_null PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -431,7 +435,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_streaming_entities PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_streaming_entities PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -462,7 +466,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_chain_generate_then_expand PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_chain_generate_then_expand PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -493,7 +497,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_validation_showcase PRIVATE  an_openai_api_library::an_openai_api_library)
+target_link_libraries(structured_validation_showcase PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)

@@ -1,8 +1,12 @@
 // SPDX-FileCopyrightText: 2025 Andy Curtis <contactandyc@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
+//
+// SPDX-FileComment: This project is an independent library for interacting with the OpenAI API.
+// It is not affiliated with, endorsed by, or sponsored by OpenAI.
+// "OpenAI" and related marks are trademarks of OpenAI OpCo, LLC.
 
-#ifndef AN_OPENAI_API_SINK_V1_CHAT_COMPLETIONS_H
-#define AN_OPENAI_API_SINK_V1_CHAT_COMPLETIONS_H
+#ifndef A_CURL_OPENAI_PLUGIN_SINK_V1_CHAT_COMPLETIONS_H
+#define A_CURL_OPENAI_PLUGIN_SINK_V1_CHAT_COMPLETIONS_H
 
 #include "a-curl-library/curl_event_loop.h"
 #include "a-curl-library/curl_event_request.h"
@@ -23,4 +27,4 @@ curl_sink_interface_t *openai_v1_chat_completions_sink(
     openai_v1_chat_completions_complete_callback_t complete_callback,
     void *complete_callback_arg);
 
-#endif // AN_OPENAI_API_SINK_V1_CHAT_COMPLETIONS_H
+#endif // A_CURL_OPENAI_PLUGIN_SINK_V1_CHAT_COMPLETIONS_H

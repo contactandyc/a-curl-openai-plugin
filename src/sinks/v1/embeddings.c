@@ -1,7 +1,11 @@
 // SPDX-FileCopyrightText: 2025 Andy Curtis <contactandyc@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
+//
+// SPDX-FileComment: This project is an independent library for interacting with the OpenAI API.
+// It is not affiliated with, endorsed by, or sponsored by OpenAI.
+// "OpenAI" and related marks are trademarks of OpenAI OpCo, LLC.
 
-#include "an-openai-api-library/sinks/v1/embeddings.h"
+#include "a-curl-openai-plugin/sinks/v1/embeddings.h"
 
 #include "a-json-library/ajson.h"
 #include "a-memory-library/aml_alloc.h"

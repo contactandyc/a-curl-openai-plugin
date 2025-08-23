@@ -1,13 +1,17 @@
 # SPDX-FileCopyrightText: 2025 Andy Curtis <contactandyc@gmail.com>
 # SPDX-License-Identifier: Apache-2.0
+#
+# SPDX-FileComment: This project is an independent library for interacting with the OpenAI API.
+# It is not affiliated with, endorsed by, or sponsored by OpenAI.
+# "OpenAI" and related marks are trademarks of OpenAI OpCo, LLC.
 
 # CMakeLists.txt for tests
 cmake_minimum_required(VERSION 3.20)
 
-project(an_openai_api_library_tests LANGUAGES C)
+project(a_curl_openai_plugin_tests LANGUAGES C)
 
 set(A_BUILD_VARIANT "debug" CACHE STRING
-    "Variant to link via an_openai_api_library::an_openai_api_library (debug|memory|static|shared)")
+    "Variant to link via a_curl_openai_plugin::a_curl_openai_plugin (debug|memory|static|shared)")
 set_property(CACHE A_BUILD_VARIANT PROPERTY STRINGS debug memory static shared)
 
 option(A_ENABLE_COVERAGE "Enable code coverage instrumentation" OFF)
@@ -47,7 +51,7 @@ if(A_ENABLE_COVERAGE AND CMAKE_C_COMPILER_ID MATCHES "Clang")
     # Normal compiled library path
     add_custom_command(TARGET coverage_report POST_BUILD
       COMMAND ${LLVM_COV_EXECUTABLE} show
-              ../liban_openai_api_library_${A_BUILD_VARIANT}.a
+              ../liba_curl_openai_plugin_${A_BUILD_VARIANT}.a
               -instr-profile=default.profdata
               -format=html -output-dir=coverage_html
               --ignore-filename-regex='/usr/.*'

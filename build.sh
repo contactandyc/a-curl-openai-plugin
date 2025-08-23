@@ -66,7 +66,7 @@ case "$COMMAND" in
     echo ""
     echo "--- Coverage summary (console) ---"
     # Compiled library: summarize from the built archive
-    llvm-cov report "$COV_BUILD_DIR/liban_openai_api_library_debug.a" \
+    llvm-cov report "$COV_BUILD_DIR/liba_curl_openai_plugin_debug.a" \
       -instr-profile="$COV_BUILD_DIR/tests/default.profdata"
 
     echo ""

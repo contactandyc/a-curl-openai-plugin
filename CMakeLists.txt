@@ -1,16 +1,20 @@
 # SPDX-FileCopyrightText: 2025 Andy Curtis <contactandyc@gmail.com>
 # SPDX-License-Identifier: Apache-2.0
+#
+# SPDX-FileComment: This project is an independent library for interacting with the OpenAI API.
+# It is not affiliated with, endorsed by, or sponsored by OpenAI.
+# "OpenAI" and related marks are trademarks of OpenAI OpCo, LLC.
 
 # CMakeLists.txt for libraries (regular or header-only)
 cmake_minimum_required(VERSION 3.20)
 
-project(an_openai_api_library
+project(a_curl_openai_plugin
   VERSION 0.0.1
   LANGUAGES C
 )
 # ── Variant selection for the umbrella alias (NOT for building) ───────────────
 # We build ALL variant targets below; this just selects which one the umbrella
-# alias (an_openai_api_library::an_openai_api_library) points to during this configure.
+# alias (a_curl_openai_plugin::a_curl_openai_plugin) points to during this configure.
 set(A_BUILD_VARIANT "debug" CACHE STRING
     "Umbrella choice for in-tree linking (debug|memory|static|shared)")
 set_property(CACHE A_BUILD_VARIANT PROPERTY STRINGS debug memory static shared)
@@ -48,141 +52,141 @@ find_package(a_curl_library CONFIG REQUIRED)
 find_package(a_json_schema_builder_library CONFIG REQUIRED)
 
 # ── Library variants (ALL are defined & built/installed) ──────────────────────
-add_library(an_openai_api_library_debug  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
+add_library(a_curl_openai_plugin_debug  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
 
-target_include_directories(an_openai_api_library_debug PUBLIC
+target_include_directories(a_curl_openai_plugin_debug PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
-set_target_properties(an_openai_api_library_debug PROPERTIES
+set_target_properties(a_curl_openai_plugin_debug PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
   POSITION_INDEPENDENT_CODE ON
 )
 
 if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(an_openai_api_library_debug PROPERTIES
+  set_target_properties(a_curl_openai_plugin_debug PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED YES
   )
 endif()
 
 # Link deps once
-target_link_libraries(an_openai_api_library_debug PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
+target_link_libraries(a_curl_openai_plugin_debug PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
 
 # Per-variant optimization flavor
-target_compile_options(an_openai_api_library_debug PRIVATE ${_A_DEBUG_OPTS})
+target_compile_options(a_curl_openai_plugin_debug PRIVATE ${_A_DEBUG_OPTS})
 
 # Memory profiling macro on the memory variant (opt-in)
 
 # Install this variant
-install(TARGETS an_openai_api_library_debug EXPORT an_openai_api_libraryTargets
+install(TARGETS a_curl_openai_plugin_debug EXPORT a_curl_openai_pluginTargets
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
   INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-add_library(an_openai_api_library_memory  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
+add_library(a_curl_openai_plugin_memory  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
 
-target_include_directories(an_openai_api_library_memory PUBLIC
+target_include_directories(a_curl_openai_plugin_memory PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
-set_target_properties(an_openai_api_library_memory PROPERTIES
+set_target_properties(a_curl_openai_plugin_memory PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
   POSITION_INDEPENDENT_CODE ON
 )
 
 if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(an_openai_api_library_memory PROPERTIES
+  set_target_properties(a_curl_openai_plugin_memory PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED YES
   )
 endif()
 
 # Link deps once
-target_link_libraries(an_openai_api_library_memory PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
+target_link_libraries(a_curl_openai_plugin_memory PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
 
 # Per-variant optimization flavor
-target_compile_options(an_openai_api_library_memory PRIVATE ${_A_DEBUG_OPTS})
+target_compile_options(a_curl_openai_plugin_memory PRIVATE ${_A_DEBUG_OPTS})
 
 # Memory profiling macro on the memory variant (opt-in)
 if(A_BUILD_ENABLE_MEMORY_PROFILE)
-  target_compile_definitions(an_openai_api_library_memory PUBLIC ${A_BUILD_MEMORY_DEFINE})
+  target_compile_definitions(a_curl_openai_plugin_memory PUBLIC ${A_BUILD_MEMORY_DEFINE})
 endif()
 
 # Install this variant
-install(TARGETS an_openai_api_library_memory EXPORT an_openai_api_libraryTargets
+install(TARGETS a_curl_openai_plugin_memory EXPORT a_curl_openai_pluginTargets
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
   INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-add_library(an_openai_api_library_static  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
+add_library(a_curl_openai_plugin_static  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
 
-target_include_directories(an_openai_api_library_static PUBLIC
+target_include_directories(a_curl_openai_plugin_static PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
-set_target_properties(an_openai_api_library_static PROPERTIES
+set_target_properties(a_curl_openai_plugin_static PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
   POSITION_INDEPENDENT_CODE ON
 )
 
 if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(an_openai_api_library_static PROPERTIES
+  set_target_properties(a_curl_openai_plugin_static PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED YES
   )
 endif()
 
 # Link deps once
-target_link_libraries(an_openai_api_library_static PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
+target_link_libraries(a_curl_openai_plugin_static PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
 
 # Per-variant optimization flavor
-target_compile_options(an_openai_api_library_static PRIVATE ${_A_RELEASE_OPTS})
+target_compile_options(a_curl_openai_plugin_static PRIVATE ${_A_RELEASE_OPTS})
 
 # Memory profiling macro on the memory variant (opt-in)
 
 # Install this variant
-install(TARGETS an_openai_api_library_static EXPORT an_openai_api_libraryTargets
+install(TARGETS a_curl_openai_plugin_static EXPORT a_curl_openai_pluginTargets
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
   INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-add_library(an_openai_api_library_shared  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
+add_library(a_curl_openai_plugin_shared  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
 
-target_include_directories(an_openai_api_library_shared PUBLIC
+target_include_directories(a_curl_openai_plugin_shared PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
-set_target_properties(an_openai_api_library_shared PROPERTIES
+set_target_properties(a_curl_openai_plugin_shared PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
   POSITION_INDEPENDENT_CODE ON
 )
 
 if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(an_openai_api_library_shared PROPERTIES
+  set_target_properties(a_curl_openai_plugin_shared PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED YES
   )
 endif()
 
 # Link deps once
-target_link_libraries(an_openai_api_library_shared PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
+target_link_libraries(a_curl_openai_plugin_shared PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
 
 # Per-variant optimization flavor
-target_compile_options(an_openai_api_library_shared PRIVATE ${_A_RELEASE_OPTS})
+target_compile_options(a_curl_openai_plugin_shared PRIVATE ${_A_RELEASE_OPTS})
 
 # Memory profiling macro on the memory variant (opt-in)
 
 # Install this variant
-install(TARGETS an_openai_api_library_shared EXPORT an_openai_api_libraryTargets
+install(TARGETS a_curl_openai_plugin_shared EXPORT a_curl_openai_pluginTargets
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
@@ -190,19 +194,19 @@ install(TARGETS an_openai_api_library_shared EXPORT an_openai_api_libraryTargets
 
 # In-tree umbrella alias picking one variant (for unified builds)
 string(REPLACE "-" "_" _variant_us "${A_BUILD_VARIANT}")
-set(_sel_tgt "an_openai_api_library_${_variant_us}")
+set(_sel_tgt "a_curl_openai_plugin_${_variant_us}")
 if(TARGET "${_sel_tgt}")
-  add_library(an_openai_api_library::an_openai_api_library ALIAS ${_sel_tgt})
+  add_library(a_curl_openai_plugin::a_curl_openai_plugin ALIAS ${_sel_tgt})
 endif()
 
 install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/include/"
         DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
 
 # Export all variant targets together
-install(EXPORT an_openai_api_libraryTargets
-  FILE an_openai_api_libraryTargets.cmake
-  NAMESPACE an_openai_api_library::
-  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/an_openai_api_library)
+install(EXPORT a_curl_openai_pluginTargets
+  FILE a_curl_openai_pluginTargets.cmake
+  NAMESPACE a_curl_openai_plugin::
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/a_curl_openai_plugin)
 
 # ---- Package config with umbrella target -------------------------------------
 set(_CFG_IN "${CMAKE_CURRENT_BINARY_DIR}/config.cmake.in")
@@ -224,7 +228,7 @@ foreach(_dep IN LISTS _deps)
 endforeach()
 set(A_BUILD_VARIANT "${_save_variant}")
 
-include("${CMAKE_CURRENT_LIST_DIR}/an_openai_api_libraryTargets.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/a_curl_openai_pluginTargets.cmake")
 
 set(_ns "@A_BUILD_EXPORT_NAMESPACE@")
 set(_pkg "@A_BUILD_TARGET_BASENAME@")
@@ -238,25 +242,25 @@ if(TARGET "${_pick}")
 endif()
 ]=])
 
-set(A_BUILD_TARGET_BASENAME "an_openai_api_library")
-set(A_BUILD_EXPORT_NAMESPACE "an_openai_api_library")
+set(A_BUILD_TARGET_BASENAME "a_curl_openai_plugin")
+set(A_BUILD_EXPORT_NAMESPACE "a_curl_openai_plugin")
 set(A_BUILD_DEPS "a_curl_library;a_json_schema_builder_library")
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file(
   "${_CFG_IN}"
-  "${CMAKE_CURRENT_BINARY_DIR}/an_openai_api_libraryConfig.cmake"
-  INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/an_openai_api_library
+  "${CMAKE_CURRENT_BINARY_DIR}/a_curl_openai_pluginConfig.cmake"
+  INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/a_curl_openai_plugin
 )
 write_basic_package_version_file(
-  "${CMAKE_CURRENT_BINARY_DIR}/an_openai_api_libraryConfigVersion.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/a_curl_openai_pluginConfigVersion.cmake"
   VERSION ${PROJECT_VERSION}
   COMPATIBILITY SameMajorVersion
 )
 install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/an_openai_api_libraryConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/an_openai_api_libraryConfigVersion.cmake"
-  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/an_openai_api_library
+  "${CMAKE_CURRENT_BINARY_DIR}/a_curl_openai_pluginConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/a_curl_openai_pluginConfigVersion.cmake"
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/a_curl_openai_plugin
 )
 # Extra project-specific targets
 

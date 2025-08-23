@@ -103,10 +103,10 @@ RUN set -eux; \
 
 
 # --- Build & install this project --------------------------------------------
-COPY --chown=dev:dev . /workspace/an-openai-api-library
-RUN mkdir -p /workspace/build/an-openai-api-library && \
-    cd /workspace/build/an-openai-api-library && \
-    cmake /workspace/an-openai-api-library && \
+COPY --chown=dev:dev . /workspace/a-curl-openai-plugin
+RUN mkdir -p /workspace/build/a-curl-openai-plugin && \
+    cd /workspace/build/a-curl-openai-plugin && \
+    cmake /workspace/a-curl-openai-plugin && \
     make -j"$(nproc)" && sudo make install
 
 CMD ["/bin/bash"]

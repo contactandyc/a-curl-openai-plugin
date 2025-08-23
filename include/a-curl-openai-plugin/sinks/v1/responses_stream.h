@@ -1,9 +1,13 @@
 // SPDX-FileCopyrightText: 2025 Andy Curtis <contactandyc@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
+//
+// SPDX-FileComment: This project is an independent library for interacting with the OpenAI API.
+// It is not affiliated with, endorsed by, or sponsored by OpenAI.
+// "OpenAI" and related marks are trademarks of OpenAI OpCo, LLC.
 
 // SPDX: Apache-2.0
-#ifndef AN_OPENAI_API_SINK_V1_RESPONSES_STREAM_H
-#define AN_OPENAI_API_SINK_V1_RESPONSES_STREAM_H
+#ifndef A_CURL_OPENAI_PLUGIN_SINK_V1_RESPONSES_STREAM_H
+#define A_CURL_OPENAI_PLUGIN_SINK_V1_RESPONSES_STREAM_H
 
 #include "a-curl-library/curl_event_request.h"
 
@@ -30,4 +34,4 @@ openai_v1_responses_stream_sink_init(
 #ifdef __cplusplus
 }
 #endif
-#endif  /* AN_OPENAI_API_SINK_V1_RESPONSES_STREAM_H */
+#endif  /* A_CURL_OPENAI_PLUGIN_SINK_V1_RESPONSES_STREAM_H */

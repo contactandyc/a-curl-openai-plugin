@@ -1,4 +1,4 @@
-# An OpenAI API Library (C)
+# An OpenAI API Plugin for a-curl-library
 
 A small, fast **C** library for OpenAI’s HTTP APIs built on an evented cURL layer.
 It provides a builder-style request API, streaming sinks, and helpers for **/v1/responses**, **/v1/chat/completions**, and **/v1/embeddings**—plus utilities for **structured outputs (JSON Schema)**.
@@ -40,9 +40,9 @@ It provides a builder-style request API, streaming sinks, and helpers for **/v1/
 If you’ve built and installed the library (and its deps) with CMake packages:
 
 ```cmake
-find_package(an_openai_api_library CONFIG REQUIRED)
+find_package(a_curl_openai_plugin CONFIG REQUIRED)
 add_executable(app main.c)
-target_link_libraries(app PRIVATE an_openai_api_library::an_openai_api_library)
+target_link_libraries(app PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 ```
 
 > See `examples/` for complete, working CMake projects.
@@ -53,8 +53,8 @@ target_link_libraries(app PRIVATE an_openai_api_library::an_openai_api_library)
 #include "a-curl-library/curl_event_loop.h"
 #include "a-curl-library/curl_event_request.h"
 #include "a-curl-library/curl_resource.h"
-#include "an-openai-api-library/plugins/v1/responses.h"
-#include "an-openai-api-library/sinks/v1/responses.h"
+#include "a-curl-openai-plugin/plugins/v1/responses.h"
+#include "a-curl-openai-plugin/sinks/v1/responses.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -86,7 +86,7 @@ int main(void) {
 ### Streaming text (SSE)
 
 ```c
-#include "an-openai-api-library/sinks/v1/responses_stream.h"
+#include "a-curl-openai-plugin/sinks/v1/responses_stream.h"
 
 static void on_delta(void*, const char* utf8, size_t n) {
   fwrite(utf8, 1, n, stdout); fflush(stdout);

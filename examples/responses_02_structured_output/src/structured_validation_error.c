@@ -1,11 +1,15 @@
 // SPDX-FileCopyrightText: 2025 Andy Curtis <contactandyc@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
+//
+// SPDX-FileComment: This project is an independent library for interacting with the OpenAI API.
+// It is not affiliated with, endorsed by, or sponsored by OpenAI.
+// "OpenAI" and related marks are trademarks of OpenAI OpCo, LLC.
 
 #include "a-curl-library/curl_event_loop.h"
 #include "a-curl-library/curl_resource.h"
-#include "an-openai-api-library/plugins/v1/responses.h"
+#include "a-curl-openai-plugin/plugins/v1/responses.h"
 #include "a-curl-library/sinks/memory.h"
-#include "an-openai-api-library/parsers/v1/responses_output.h"
+#include "a-curl-openai-plugin/parsers/v1/responses_output.h"
 #include "a-memory-library/aml_pool.h"
 #include <stdio.h>
 #include <stdlib.h>
