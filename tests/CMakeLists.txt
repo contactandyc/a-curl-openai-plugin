@@ -20,6 +20,47 @@ find_library(M_LIB m)
 
 # ---- Test executables ----
 set(TEST_EXECUTABLES "")
+add_executable(test_embeddings  src/test_embeddings.c)
+
+list(APPEND TEST_EXECUTABLES test_embeddings)
+
+set_target_properties(test_embeddings PROPERTIES
+  C_STANDARD 23
+  C_STANDARD_REQUIRED YES
+)
+if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
+  set_target_properties(test_embeddings PROPERTIES
+    CXX_STANDARD 17
+    CXX_STANDARD_REQUIRED YES
+  )
+endif()
+
+if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
+  find_package(a_curl_openai_plugin CONFIG REQUIRED)
+endif()
+target_link_libraries(test_embeddings PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+
+if(M_LIB)
+  target_link_libraries(test_embeddings PRIVATE ${M_LIB})
+endif()
+
+if(MSVC)
+  target_compile_options(test_embeddings PRIVATE /W4)
+else()
+  target_compile_options(test_embeddings PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+if(A_ENABLE_COVERAGE)
+  if (CMAKE_C_COMPILER_ID MATCHES "Clang")
+    target_compile_options(test_embeddings PRIVATE -O0 -g -fprofile-instr-generate -fcoverage-mapping)
+    target_link_options(test_embeddings PRIVATE -fprofile-instr-generate -fcoverage-mapping)
+  elseif (CMAKE_C_COMPILER_ID STREQUAL "GNU")
+    target_compile_options(test_embeddings PRIVATE -O0 -g --coverage)
+    target_link_options(test_embeddings PRIVATE --coverage)
+  endif()
+endif()
+
+add_test(NAME test_embeddings COMMAND $<TARGET_FILE:test_embeddings>)
 
 enable_testing()
 

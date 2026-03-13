@@ -56,7 +56,6 @@ static void sink_destroy(curl_sink_interface_t *iface)
 {
     openai_v1_embeddings_sink_t *s = (openai_v1_embeddings_sink_t *)iface;
     aml_buffer_destroy(s->response_buffer);
-    aml_free(s);
 }
 
 /* Complete – parse embeddings -------------------------------------------- */

@@ -86,7 +86,6 @@ static void chat_destroy(curl_sink_interface_t *interface) {
     if (sink->response_buffer) {
         aml_buffer_destroy(sink->response_buffer);
     }
-    aml_free(sink);
 }
 
 // **OpenAI Chat sink**
