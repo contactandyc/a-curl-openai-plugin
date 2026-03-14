@@ -26,7 +26,7 @@ sudo cmake --install .
 ### System packages (required)
 
 ```bash
-sudo apt-get update && sudo apt-get install -y libssl-dev zlib1g-dev build-essential libcurl4-openssl-dev
+sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev libssl-dev build-essential zlib1g-dev
 ```
 
 
@@ -101,6 +101,20 @@ cd a-json-library
 ./build.sh install
 cd ..
 rm -rf a-json-library
+```
+
+
+### a-json-schema-builder-library
+
+Clone & build:
+
+```bash
+git clone --depth 1 "https://github.com/contactandyc/a-json-schema-builder-library.git" "a-json-schema-builder-library"
+cd a-json-schema-builder-library
+./build.sh clean
+./build.sh install
+cd ..
+rm -rf a-json-schema-builder-library
 ```
 
 
@@ -246,6 +260,15 @@ RUN set -eux; \
   ./build.sh install && \
   cd .. && \
   rm -rf a-json-library
+
+# --- Build & install a-json-schema-builder-library ---
+RUN set -eux; \
+  git clone --depth 1 "https://github.com/contactandyc/a-json-schema-builder-library.git" "a-json-schema-builder-library" && \
+  cd a-json-schema-builder-library && \
+  ./build.sh clean && \
+  ./build.sh install && \
+  cd .. && \
+  rm -rf a-json-schema-builder-library
 
 # --- Build & install a-curl-library ---
 RUN set -eux; \

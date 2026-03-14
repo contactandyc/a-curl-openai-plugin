@@ -49,6 +49,7 @@ include(GNUInstallDirs)
 
 # ---- Dependencies (Standard CMake) ----
 find_package(a_curl_library CONFIG REQUIRED)
+find_package(a_json_schema_builder_library CONFIG REQUIRED)
 
 # ---- Dependencies (PkgConfig Shims) ----
 
@@ -74,7 +75,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link deps once
-target_link_libraries(a_curl_openai_plugin_debug PUBLIC  a_curl_library::a_curl_library)
+target_link_libraries(a_curl_openai_plugin_debug PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
 
 # Per-variant optimization flavor
 target_compile_options(a_curl_openai_plugin_debug PRIVATE ${_A_DEBUG_OPTS})
@@ -108,7 +109,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link deps once
-target_link_libraries(a_curl_openai_plugin_memory PUBLIC  a_curl_library::a_curl_library)
+target_link_libraries(a_curl_openai_plugin_memory PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
 
 # Per-variant optimization flavor
 target_compile_options(a_curl_openai_plugin_memory PRIVATE ${_A_DEBUG_OPTS})
@@ -145,7 +146,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link deps once
-target_link_libraries(a_curl_openai_plugin_static PUBLIC  a_curl_library::a_curl_library)
+target_link_libraries(a_curl_openai_plugin_static PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
 
 # Per-variant optimization flavor
 target_compile_options(a_curl_openai_plugin_static PRIVATE ${_A_RELEASE_OPTS})
@@ -179,7 +180,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link deps once
-target_link_libraries(a_curl_openai_plugin_shared PUBLIC  a_curl_library::a_curl_library)
+target_link_libraries(a_curl_openai_plugin_shared PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
 
 # Per-variant optimization flavor
 target_compile_options(a_curl_openai_plugin_shared PRIVATE ${_A_RELEASE_OPTS})
@@ -245,7 +246,7 @@ endif()
 
 set(A_BUILD_TARGET_BASENAME "a_curl_openai_plugin")
 set(A_BUILD_EXPORT_NAMESPACE "a_curl_openai_plugin")
-set(A_BUILD_DEPS "a_curl_library")
+set(A_BUILD_DEPS "a_curl_library;a_json_schema_builder_library")
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file(

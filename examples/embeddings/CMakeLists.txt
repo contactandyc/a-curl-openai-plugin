@@ -15,6 +15,7 @@ find_library(M_LIB m)
 
 # Bring in suite-level dependencies derived by the renderer
 find_package(a_curl_library CONFIG REQUIRED)
+find_package(a_json_schema_builder_library CONFIG REQUIRED)
 find_package(a_curl_openai_plugin CONFIG REQUIRED)
 
 # ---- Binaries ----
@@ -35,7 +36,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(embed_test PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(embed_test PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)

@@ -15,6 +15,7 @@ find_library(M_LIB m)
 
 # Bring in suite-level dependencies derived by the renderer
 find_package(a_curl_library CONFIG REQUIRED)
+find_package(a_json_schema_builder_library CONFIG REQUIRED)
 find_package(a_curl_openai_plugin CONFIG REQUIRED)
 
 # ---- Binaries ----
@@ -35,7 +36,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -68,7 +69,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_cache_miss PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_cache_miss PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -101,7 +102,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_chain PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_chain PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -134,7 +135,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_error PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_error PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -167,7 +168,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_instructions PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_instructions PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -200,7 +201,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_logprobs PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_logprobs PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -233,7 +234,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_max_tokens PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_max_tokens PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -266,7 +267,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_parallel PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_parallel PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -299,7 +300,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_temperature_sweep PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_temperature_sweep PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)

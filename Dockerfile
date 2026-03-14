@@ -97,6 +97,15 @@ RUN set -eux; \
   cd .. && \
   rm -rf a-json-library
 
+# --- Build & install a-json-schema-builder-library ---
+RUN set -eux; \
+  git clone --depth 1 "https://github.com/contactandyc/a-json-schema-builder-library.git" "a-json-schema-builder-library" && \
+  cd a-json-schema-builder-library && \
+  ./build.sh clean && \
+  ./build.sh install && \
+  cd .. && \
+  rm -rf a-json-schema-builder-library
+
 # --- Build & install a-curl-library ---
 RUN set -eux; \
   git clone --depth 1 "https://github.com/contactandyc/a-curl-library.git" "a-curl-library" && \
