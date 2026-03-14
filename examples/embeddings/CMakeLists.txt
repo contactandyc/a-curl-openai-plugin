@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Andy Curtis <contactandyc@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Andy Curtis <contactandyc@gmail.com>
 # SPDX-License-Identifier: Apache-2.0
 #
 # SPDX-FileComment: This project is an independent library for interacting with the OpenAI API.
@@ -14,10 +14,13 @@ project(a-curl-openai-plugin_embeddings LANGUAGES C)
 find_library(M_LIB m)
 
 # Bring in suite-level dependencies derived by the renderer
+find_package(a_curl_library CONFIG REQUIRED)
 find_package(a_curl_openai_plugin CONFIG REQUIRED)
 
 # ---- Binaries ----
 add_executable(embed_test  src/embed_test.c)
+
+target_include_directories(embed_test PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # Language standards
 set_target_properties(embed_test PROPERTIES
@@ -32,7 +35,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(embed_test PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(embed_test PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)

@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Andy Curtis <contactandyc@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Andy Curtis <contactandyc@gmail.com>
 # SPDX-License-Identifier: Apache-2.0
 #
 # SPDX-FileComment: This project is an independent library for interacting with the OpenAI API.
@@ -14,10 +14,13 @@ project(a-curl-openai-plugin_responses_01_basic_text LANGUAGES C)
 find_library(M_LIB m)
 
 # Bring in suite-level dependencies derived by the renderer
+find_package(a_curl_library CONFIG REQUIRED)
 find_package(a_curl_openai_plugin CONFIG REQUIRED)
 
 # ---- Binaries ----
 add_executable(basic_text  src/basic_text.c)
+
+target_include_directories(basic_text PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # Language standards
 set_target_properties(basic_text PROPERTIES
@@ -32,7 +35,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -50,6 +53,8 @@ endif()
 install(TARGETS basic_text RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 add_executable(basic_text_cache_miss  src/basic_text_cache_miss.c)
 
+target_include_directories(basic_text_cache_miss PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 # Language standards
 set_target_properties(basic_text_cache_miss PROPERTIES
   C_STANDARD 23
@@ -63,7 +68,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_cache_miss PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_cache_miss PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -81,6 +86,8 @@ endif()
 install(TARGETS basic_text_cache_miss RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 add_executable(basic_text_chain  src/basic_text_chain.c)
 
+target_include_directories(basic_text_chain PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 # Language standards
 set_target_properties(basic_text_chain PROPERTIES
   C_STANDARD 23
@@ -94,7 +101,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_chain PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_chain PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -112,6 +119,8 @@ endif()
 install(TARGETS basic_text_chain RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 add_executable(basic_text_error  src/basic_text_error.c)
 
+target_include_directories(basic_text_error PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 # Language standards
 set_target_properties(basic_text_error PROPERTIES
   C_STANDARD 23
@@ -125,7 +134,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_error PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_error PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -143,6 +152,8 @@ endif()
 install(TARGETS basic_text_error RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 add_executable(basic_text_instructions  src/basic_text_instructions.c)
 
+target_include_directories(basic_text_instructions PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 # Language standards
 set_target_properties(basic_text_instructions PROPERTIES
   C_STANDARD 23
@@ -156,7 +167,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_instructions PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_instructions PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -174,6 +185,8 @@ endif()
 install(TARGETS basic_text_instructions RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 add_executable(basic_text_logprobs  src/basic_text_logprobs.c)
 
+target_include_directories(basic_text_logprobs PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 # Language standards
 set_target_properties(basic_text_logprobs PROPERTIES
   C_STANDARD 23
@@ -187,7 +200,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_logprobs PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_logprobs PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -205,6 +218,8 @@ endif()
 install(TARGETS basic_text_logprobs RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 add_executable(basic_text_max_tokens  src/basic_text_max_tokens.c)
 
+target_include_directories(basic_text_max_tokens PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 # Language standards
 set_target_properties(basic_text_max_tokens PROPERTIES
   C_STANDARD 23
@@ -218,7 +233,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_max_tokens PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_max_tokens PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -236,6 +251,8 @@ endif()
 install(TARGETS basic_text_max_tokens RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 add_executable(basic_text_parallel  src/basic_text_parallel.c)
 
+target_include_directories(basic_text_parallel PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 # Language standards
 set_target_properties(basic_text_parallel PROPERTIES
   C_STANDARD 23
@@ -249,7 +266,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_parallel PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_parallel PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -267,6 +284,8 @@ endif()
 install(TARGETS basic_text_parallel RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 add_executable(basic_text_temperature_sweep  src/basic_text_temperature_sweep.c)
 
+target_include_directories(basic_text_temperature_sweep PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
 # Language standards
 set_target_properties(basic_text_temperature_sweep PROPERTIES
   C_STANDARD 23
@@ -280,7 +299,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(basic_text_temperature_sweep PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(basic_text_temperature_sweep PRIVATE  a_curl_library::a_curl_library  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)

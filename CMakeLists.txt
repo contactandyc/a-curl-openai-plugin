@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Andy Curtis <contactandyc@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Andy Curtis <contactandyc@gmail.com>
 # SPDX-License-Identifier: Apache-2.0
 #
 # SPDX-FileComment: This project is an independent library for interacting with the OpenAI API.
@@ -47,9 +47,10 @@ endif()
 
 include(GNUInstallDirs)
 
-# ---- Dependencies ----
+# ---- Dependencies (Standard CMake) ----
 find_package(a_curl_library CONFIG REQUIRED)
-find_package(a_json_schema_builder_library CONFIG REQUIRED)
+
+# ---- Dependencies (PkgConfig Shims) ----
 
 # ── Library variants (ALL are defined & built/installed) ──────────────────────
 add_library(a_curl_openai_plugin_debug  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
@@ -73,7 +74,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link deps once
-target_link_libraries(a_curl_openai_plugin_debug PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
+target_link_libraries(a_curl_openai_plugin_debug PUBLIC  a_curl_library::a_curl_library)
 
 # Per-variant optimization flavor
 target_compile_options(a_curl_openai_plugin_debug PRIVATE ${_A_DEBUG_OPTS})
@@ -107,7 +108,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link deps once
-target_link_libraries(a_curl_openai_plugin_memory PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
+target_link_libraries(a_curl_openai_plugin_memory PUBLIC  a_curl_library::a_curl_library)
 
 # Per-variant optimization flavor
 target_compile_options(a_curl_openai_plugin_memory PRIVATE ${_A_DEBUG_OPTS})
@@ -144,7 +145,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link deps once
-target_link_libraries(a_curl_openai_plugin_static PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
+target_link_libraries(a_curl_openai_plugin_static PUBLIC  a_curl_library::a_curl_library)
 
 # Per-variant optimization flavor
 target_compile_options(a_curl_openai_plugin_static PRIVATE ${_A_RELEASE_OPTS})
@@ -178,7 +179,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link deps once
-target_link_libraries(a_curl_openai_plugin_shared PUBLIC  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library)
+target_link_libraries(a_curl_openai_plugin_shared PUBLIC  a_curl_library::a_curl_library)
 
 # Per-variant optimization flavor
 target_compile_options(a_curl_openai_plugin_shared PRIVATE ${_A_RELEASE_OPTS})
@@ -244,7 +245,7 @@ endif()
 
 set(A_BUILD_TARGET_BASENAME "a_curl_openai_plugin")
 set(A_BUILD_EXPORT_NAMESPACE "a_curl_openai_plugin")
-set(A_BUILD_DEPS "a_curl_library;a_json_schema_builder_library")
+set(A_BUILD_DEPS "a_curl_library")
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file(

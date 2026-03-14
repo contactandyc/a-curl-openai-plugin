@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Andy Curtis <contactandyc@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Andy Curtis <contactandyc@gmail.com>
 # SPDX-License-Identifier: Apache-2.0
 #
 # SPDX-FileComment: This project is an independent library for interacting with the OpenAI API.
@@ -21,6 +21,8 @@ find_library(M_LIB m)
 # ---- Test executables ----
 set(TEST_EXECUTABLES "")
 add_executable(test_embeddings  src/test_embeddings.c)
+
+target_include_directories(test_embeddings PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 list(APPEND TEST_EXECUTABLES test_embeddings)
 

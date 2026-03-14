@@ -1,8 +1,9 @@
-// SPDX-FileCopyrightText: 2025 Andy Curtis <contactandyc@gmail.com>
+// SPDX-FileCopyrightText: 2025-2026 Andy Curtis <contactandyc@gmail.com>
 // SPDX-License-Identifier: Apache-2.0
+//
 // SPDX-FileComment: This project is an independent library for interacting with the OpenAI API.
-//    It is not affiliated with, endorsed by, or sponsored by OpenAI.
-//    "OpenAI" and related marks are trademarks of OpenAI OpCo, LLC.
+// It is not affiliated with, endorsed by, or sponsored by OpenAI.
+// "OpenAI" and related marks are trademarks of OpenAI OpCo, LLC.
 
 #ifndef A_CURL_OPENAI_PLUGIN_V1_RESPONSES_H
 #define A_CURL_OPENAI_PLUGIN_V1_RESPONSES_H
