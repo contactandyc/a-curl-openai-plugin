@@ -53,8 +53,11 @@ find_package(a_json_schema_builder_library CONFIG REQUIRED)
 
 # ---- Dependencies (PkgConfig Shims) ----
 
+
 # ── Library variants (ALL are defined & built/installed) ──────────────────────
-add_library(a_curl_openai_plugin_debug  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
+
+add_library(a_curl_openai_plugin_debug STATIC
+  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
 
 target_include_directories(a_curl_openai_plugin_debug PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -88,7 +91,9 @@ install(TARGETS a_curl_openai_plugin_debug EXPORT a_curl_openai_pluginTargets
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
   INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-add_library(a_curl_openai_plugin_memory  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
+
+add_library(a_curl_openai_plugin_memory STATIC
+  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
 
 target_include_directories(a_curl_openai_plugin_memory PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -125,7 +130,9 @@ install(TARGETS a_curl_openai_plugin_memory EXPORT a_curl_openai_pluginTargets
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
   INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-add_library(a_curl_openai_plugin_static  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
+
+add_library(a_curl_openai_plugin_static STATIC
+  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
 
 target_include_directories(a_curl_openai_plugin_static PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -159,7 +166,9 @@ install(TARGETS a_curl_openai_plugin_static EXPORT a_curl_openai_pluginTargets
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
   INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-add_library(a_curl_openai_plugin_shared  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
+
+add_library(a_curl_openai_plugin_shared SHARED
+  src/parsers/v1/responses_output.c  src/plugins/v1/chat/completions.c  src/plugins/v1/embeddings.c  src/plugins/v1/responses.c  src/plugins/v1/responses_admin.c  src/plugins/v1/responses_ext.c  src/sinks/v1/chat/completions.c  src/sinks/v1/embeddings.c  src/sinks/v1/responses.c  src/sinks/v1/responses_stream.c)
 
 target_include_directories(a_curl_openai_plugin_shared PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
