@@ -1,14 +1,20 @@
 project_title: An OpenAI API Plugin for a-curl-library
 version: 0.0.1
+stack: c/cmake
+date_created: 2024-01-01
+profile: default-knode
 
-profile: andy-curtis/andy-curtis-knode
-template: cmake-c-git
+base_templates:
+  repo: https://github.com/contactandyc/scaffold-templates.git
+  ref: main
 
-license_profile: andy-curtis/openai-api
+includes:
+  - source: licenses/vendors/openai-disclaimer
 
 depends_on:
   - https://github.com/contactandyc/a-curl-library.git
   - https://github.com/contactandyc/a-json-schema-builder-library.git
+
 apps:
   context:
     dest: examples
