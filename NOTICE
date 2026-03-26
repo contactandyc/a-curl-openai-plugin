@@ -1,6 +1,7 @@
-An OpenAI API Plugin for a-curl-library © 2025-2026 Andy Curtis <contactandyc@gmail.com>
-Licensed under Apache-2.0 (see LICENSE)
+An OpenAI API Plugin for a-curl-library
+© 2024–2026 Andy Curtis <contactandyc@gmail.com>
+© 2024–2025 Knode.ai — https://www.knodeai.com/
 
-NON-AFFILIATION: This software is an independent library for interacting with the OpenAI API.
-It is not affiliated with, endorsed by, or sponsored by OpenAI. "OpenAI" and related marks
-are trademarks of OpenAI OpCo, LLC.
+Maintainer: Andy Curtis <contactandyc@gmail.com>
+
+Licensed under Apache-2.0 (see LICENSE)

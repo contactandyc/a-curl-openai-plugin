@@ -1,21 +1,18 @@
-# SPDX-FileCopyrightText: 2025-2026 Andy Curtis <contactandyc@gmail.com>
+# SPDX-FileCopyrightText: 2024–2026 Andy Curtis <contactandyc@gmail.com>
+# SPDX-FileCopyrightText: 2024–2025 Knode.ai
 # SPDX-License-Identifier: Apache-2.0
 #
-# SPDX-FileComment: This project is an independent library for interacting with the OpenAI API.
-# It is not affiliated with, endorsed by, or sponsored by OpenAI.
-# "OpenAI" and related marks are trademarks of OpenAI OpCo, LLC.
+# Maintainer: Andy Curtis <contactandyc@gmail.com>
 
 cmake_minimum_required(VERSION 3.20)
 
 # A small "apps" project that builds example/demo binaries.
-project(a-curl-openai-plugin_responses_02_structured_output LANGUAGES C)
+project(a_curl_openai_plugin_responses_02_structured_output LANGUAGES C)
 
 # Optional math lib on POSIX
 find_library(M_LIB m)
 
 # Bring in suite-level dependencies derived by the renderer
-find_package(a_curl_library CONFIG REQUIRED)
-find_package(a_json_schema_builder_library CONFIG REQUIRED)
 find_package(a_curl_openai_plugin CONFIG REQUIRED)
 
 # ---- Binaries ----
@@ -36,7 +33,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_array PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_array PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -69,7 +66,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_calendar_event PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_calendar_event PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -102,7 +99,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_chain_generate_then_expand PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_chain_generate_then_expand PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -135,7 +132,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_chain_parallel_followup PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_chain_parallel_followup PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -168,7 +165,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_chain_single_followup PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_chain_single_followup PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -201,7 +198,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_contact_form PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_contact_form PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -234,7 +231,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_invoice_line_items PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_invoice_line_items PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -267,7 +264,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_moderation_report PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_moderation_report PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -300,7 +297,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_nested PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_nested PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -333,7 +330,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_options_with_null PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_options_with_null PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -366,7 +363,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_search_query PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_search_query PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -399,7 +396,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_single_object PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_single_object PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -432,7 +429,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_streaming_entities PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_streaming_entities PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -465,7 +462,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_ui_tree PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_ui_tree PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -498,7 +495,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_validation_error PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_validation_error PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
@@ -531,7 +528,7 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
 endif()
 
 # Link the union of deps computed for this app context
-target_link_libraries(structured_validation_showcase PRIVATE  a_curl_library::a_curl_library  a_json_schema_builder_library::a_json_schema_builder_library  a_curl_openai_plugin::a_curl_openai_plugin)
+target_link_libraries(structured_validation_showcase PRIVATE  a_curl_openai_plugin::a_curl_openai_plugin)
 
 # Optional libm
 if(M_LIB)
