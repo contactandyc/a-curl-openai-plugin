@@ -17,11 +17,24 @@ option(A_ENABLE_COVERAGE "Enable code coverage instrumentation" OFF)
 
 find_library(M_LIB m)
 
-# ---- Test executables ----
-set(TEST_EXECUTABLES "")
-add_executable(test_embeddings  src/test_embeddings.c)
+find_package(a_curl_library CONFIG REQUIRED)
+find_package(a_json_schema_builder_library CONFIG REQUIRED)
 
-target_include_directories(test_embeddings PRIVATE  ${CMAKE_CURRENT_SOURCE_DIR}/src)
+# Fallback for standalone test builds (when not included via add_subdirectory)
+if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
+  find_package(a_curl_openai_plugin CONFIG REQUIRED)
+endif()
+
+set(TEST_EXECUTABLES "")
+
+# ---- Targets ----
+add_executable(test_embeddings
+  src/test_embeddings.c
+)
+
+target_include_directories(test_embeddings PRIVATE
+  ${CMAKE_CURRENT_SOURCE_DIR}/../src
+)
 
 list(APPEND TEST_EXECUTABLES test_embeddings)
 
@@ -36,9 +49,8 @@ if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
   )
 endif()
 
-if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
-  find_package(a_curl_openai_plugin CONFIG REQUIRED)
-endif()
+target_link_libraries(test_embeddings PRIVATE a_curl_library::a_curl_library)
+target_link_libraries(test_embeddings PRIVATE a_json_schema_builder_library::a_json_schema_builder_library)
 target_link_libraries(test_embeddings PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 if(M_LIB)
