@@ -1,5 +1,6 @@
 project_title: An OpenAI API Plugin for a-curl-library
-version: 0.0.1
+project_name: a-curl-openai-plugin
+version: 0.0.2
 stack: c/cmake
 date_created: 2024-01-01
 profile: default-knode
@@ -16,9 +17,9 @@ depends_on:
   - https://github.com/contactandyc/a-json-schema-builder-library.git
 
 examples:
-  embeddings:
-    targets:
-      - embed_test
+  # embeddings:
+  #  targets:
+  #    - embed_test
   responses_01_basic_text:
     targets:
       - basic_text
