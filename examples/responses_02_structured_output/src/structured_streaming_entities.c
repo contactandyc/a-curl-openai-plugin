@@ -10,6 +10,7 @@
 #include "a-curl-openai-plugin/sinks/v1/responses_stream.h"
 #include "a-json-library/ajson.h"
 #include "a-memory-library/aml_buffer.h"
+#include "a-json-schema-builder-library/ajsb.h"
 
 #include <stdio.h>
 #include <stdlib.h>

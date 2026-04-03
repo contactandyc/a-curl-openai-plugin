@@ -8,7 +8,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(a_curl_openai_plugin
-  VERSION 0.0.1
+  VERSION 0.0.2
   LANGUAGES C
 )
 # ── Variant selection for the umbrella alias ──────────────────────────────────
@@ -306,7 +306,6 @@ install(FILES
 enable_testing()
 
 # Dynamically mount all subprojects (apps, examples, tests, etc.)
-add_subdirectory(examples/embeddings)
 add_subdirectory(examples/responses_01_basic_text)
 add_subdirectory(examples/responses_02_structured_output)
 add_subdirectory(tests)
