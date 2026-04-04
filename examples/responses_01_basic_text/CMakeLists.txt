@@ -26,13 +26,9 @@ target_include_directories(basic_text PRIVATE
 set_target_properties(basic_text PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(basic_text PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -68,13 +64,9 @@ target_include_directories(basic_text_cache_miss PRIVATE
 set_target_properties(basic_text_cache_miss PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(basic_text_cache_miss PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -110,13 +102,9 @@ target_include_directories(basic_text_chain PRIVATE
 set_target_properties(basic_text_chain PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(basic_text_chain PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -152,13 +140,9 @@ target_include_directories(basic_text_error PRIVATE
 set_target_properties(basic_text_error PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(basic_text_error PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -194,13 +178,9 @@ target_include_directories(basic_text_instructions PRIVATE
 set_target_properties(basic_text_instructions PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(basic_text_instructions PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -236,13 +216,9 @@ target_include_directories(basic_text_logprobs PRIVATE
 set_target_properties(basic_text_logprobs PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(basic_text_logprobs PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -278,13 +254,9 @@ target_include_directories(basic_text_max_tokens PRIVATE
 set_target_properties(basic_text_max_tokens PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(basic_text_max_tokens PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -320,13 +292,9 @@ target_include_directories(basic_text_parallel PRIVATE
 set_target_properties(basic_text_parallel PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(basic_text_parallel PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -362,13 +330,9 @@ target_include_directories(basic_text_temperature_sweep PRIVATE
 set_target_properties(basic_text_temperature_sweep PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(basic_text_temperature_sweep PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
