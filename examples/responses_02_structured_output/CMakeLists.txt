@@ -26,13 +26,9 @@ target_include_directories(structured_array PRIVATE
 set_target_properties(structured_array PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_array PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -68,13 +64,9 @@ target_include_directories(structured_calendar_event PRIVATE
 set_target_properties(structured_calendar_event PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_calendar_event PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -110,13 +102,9 @@ target_include_directories(structured_chain_generate_then_expand PRIVATE
 set_target_properties(structured_chain_generate_then_expand PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_chain_generate_then_expand PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -152,13 +140,9 @@ target_include_directories(structured_chain_parallel_followup PRIVATE
 set_target_properties(structured_chain_parallel_followup PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_chain_parallel_followup PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -194,13 +178,9 @@ target_include_directories(structured_chain_single_followup PRIVATE
 set_target_properties(structured_chain_single_followup PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_chain_single_followup PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -236,13 +216,9 @@ target_include_directories(structured_contact_form PRIVATE
 set_target_properties(structured_contact_form PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_contact_form PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -278,13 +254,9 @@ target_include_directories(structured_invoice_line_items PRIVATE
 set_target_properties(structured_invoice_line_items PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_invoice_line_items PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -320,13 +292,9 @@ target_include_directories(structured_moderation_report PRIVATE
 set_target_properties(structured_moderation_report PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_moderation_report PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -362,13 +330,9 @@ target_include_directories(structured_nested PRIVATE
 set_target_properties(structured_nested PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_nested PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -404,13 +368,9 @@ target_include_directories(structured_options_with_null PRIVATE
 set_target_properties(structured_options_with_null PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_options_with_null PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -446,13 +406,9 @@ target_include_directories(structured_search_query PRIVATE
 set_target_properties(structured_search_query PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_search_query PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -488,13 +444,9 @@ target_include_directories(structured_single_object PRIVATE
 set_target_properties(structured_single_object PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_single_object PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -530,13 +482,9 @@ target_include_directories(structured_streaming_entities PRIVATE
 set_target_properties(structured_streaming_entities PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_streaming_entities PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -572,13 +520,9 @@ target_include_directories(structured_ui_tree PRIVATE
 set_target_properties(structured_ui_tree PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_ui_tree PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -614,13 +558,9 @@ target_include_directories(structured_validation_error PRIVATE
 set_target_properties(structured_validation_error PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_validation_error PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
@@ -656,13 +596,9 @@ target_include_directories(structured_validation_showcase PRIVATE
 set_target_properties(structured_validation_showcase PROPERTIES
   C_STANDARD 23
   C_STANDARD_REQUIRED YES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED YES
 )
-if("CXX" IN_LIST CMAKE_PROJECT_LANGUAGES)
-  set_target_properties(structured_validation_showcase PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED YES
-  )
-endif()
 
 # Ensure examples running in library stacks link the main library!
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
