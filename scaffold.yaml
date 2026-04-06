@@ -1,6 +1,6 @@
 project_title: An OpenAI API Plugin for a-curl-library
 project_name: a-curl-openai-plugin
-version: 0.1.2
+version: 0.1.3
 stack: c/cmake
 date_created: 2024-01-01
 profile: default-knode
