@@ -9,6 +9,11 @@ cmake_minimum_required(VERSION 3.20)
 # A dynamically generated examples project.
 project(a_curl_openai_plugin_responses_02_structured_output LANGUAGES C)
 
+if(CMAKE_PREFIX_PATH)
+  include_directories("${CMAKE_PREFIX_PATH}/include")
+  link_directories("${CMAKE_PREFIX_PATH}/lib")
+endif()
+
 find_library(M_LIB m)
 
 find_package(a_curl_library CONFIG REQUIRED)
@@ -34,7 +39,7 @@ set_target_properties(structured_array PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_array PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_array PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_array PRIVATE
   a_curl_library::a_curl_library
@@ -72,7 +77,7 @@ set_target_properties(structured_calendar_event PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_calendar_event PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_calendar_event PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_calendar_event PRIVATE
   a_curl_library::a_curl_library
@@ -110,7 +115,7 @@ set_target_properties(structured_chain_generate_then_expand PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_chain_generate_then_expand PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_chain_generate_then_expand PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_chain_generate_then_expand PRIVATE
   a_curl_library::a_curl_library
@@ -148,7 +153,7 @@ set_target_properties(structured_chain_parallel_followup PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_chain_parallel_followup PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_chain_parallel_followup PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_chain_parallel_followup PRIVATE
   a_curl_library::a_curl_library
@@ -186,7 +191,7 @@ set_target_properties(structured_chain_single_followup PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_chain_single_followup PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_chain_single_followup PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_chain_single_followup PRIVATE
   a_curl_library::a_curl_library
@@ -224,7 +229,7 @@ set_target_properties(structured_contact_form PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_contact_form PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_contact_form PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_contact_form PRIVATE
   a_curl_library::a_curl_library
@@ -262,7 +267,7 @@ set_target_properties(structured_invoice_line_items PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_invoice_line_items PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_invoice_line_items PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_invoice_line_items PRIVATE
   a_curl_library::a_curl_library
@@ -300,7 +305,7 @@ set_target_properties(structured_moderation_report PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_moderation_report PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_moderation_report PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_moderation_report PRIVATE
   a_curl_library::a_curl_library
@@ -338,7 +343,7 @@ set_target_properties(structured_nested PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_nested PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_nested PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_nested PRIVATE
   a_curl_library::a_curl_library
@@ -376,7 +381,7 @@ set_target_properties(structured_options_with_null PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_options_with_null PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_options_with_null PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_options_with_null PRIVATE
   a_curl_library::a_curl_library
@@ -414,7 +419,7 @@ set_target_properties(structured_search_query PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_search_query PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_search_query PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_search_query PRIVATE
   a_curl_library::a_curl_library
@@ -452,7 +457,7 @@ set_target_properties(structured_single_object PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_single_object PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_single_object PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_single_object PRIVATE
   a_curl_library::a_curl_library
@@ -490,7 +495,7 @@ set_target_properties(structured_streaming_entities PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_streaming_entities PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_streaming_entities PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_streaming_entities PRIVATE
   a_curl_library::a_curl_library
@@ -528,7 +533,7 @@ set_target_properties(structured_ui_tree PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_ui_tree PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_ui_tree PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_ui_tree PRIVATE
   a_curl_library::a_curl_library
@@ -566,7 +571,7 @@ set_target_properties(structured_validation_error PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_validation_error PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_validation_error PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_validation_error PRIVATE
   a_curl_library::a_curl_library
@@ -604,7 +609,7 @@ set_target_properties(structured_validation_showcase PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(structured_validation_showcase PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(structured_validation_showcase PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(structured_validation_showcase PRIVATE
   a_curl_library::a_curl_library

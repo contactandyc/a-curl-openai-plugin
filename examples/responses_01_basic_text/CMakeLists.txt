@@ -9,6 +9,11 @@ cmake_minimum_required(VERSION 3.20)
 # A dynamically generated examples project.
 project(a_curl_openai_plugin_responses_01_basic_text LANGUAGES C)
 
+if(CMAKE_PREFIX_PATH)
+  include_directories("${CMAKE_PREFIX_PATH}/include")
+  link_directories("${CMAKE_PREFIX_PATH}/lib")
+endif()
+
 find_library(M_LIB m)
 
 find_package(a_curl_library CONFIG REQUIRED)
@@ -34,7 +39,7 @@ set_target_properties(basic_text PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(basic_text PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(basic_text PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(basic_text PRIVATE
   a_curl_library::a_curl_library
@@ -72,7 +77,7 @@ set_target_properties(basic_text_cache_miss PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(basic_text_cache_miss PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(basic_text_cache_miss PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(basic_text_cache_miss PRIVATE
   a_curl_library::a_curl_library
@@ -110,7 +115,7 @@ set_target_properties(basic_text_chain PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(basic_text_chain PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(basic_text_chain PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(basic_text_chain PRIVATE
   a_curl_library::a_curl_library
@@ -148,7 +153,7 @@ set_target_properties(basic_text_error PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(basic_text_error PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(basic_text_error PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(basic_text_error PRIVATE
   a_curl_library::a_curl_library
@@ -186,7 +191,7 @@ set_target_properties(basic_text_instructions PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(basic_text_instructions PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(basic_text_instructions PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(basic_text_instructions PRIVATE
   a_curl_library::a_curl_library
@@ -224,7 +229,7 @@ set_target_properties(basic_text_logprobs PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(basic_text_logprobs PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(basic_text_logprobs PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(basic_text_logprobs PRIVATE
   a_curl_library::a_curl_library
@@ -262,7 +267,7 @@ set_target_properties(basic_text_max_tokens PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(basic_text_max_tokens PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(basic_text_max_tokens PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(basic_text_max_tokens PRIVATE
   a_curl_library::a_curl_library
@@ -300,7 +305,7 @@ set_target_properties(basic_text_parallel PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(basic_text_parallel PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(basic_text_parallel PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(basic_text_parallel PRIVATE
   a_curl_library::a_curl_library
@@ -338,7 +343,7 @@ set_target_properties(basic_text_temperature_sweep PROPERTIES
 if(NOT TARGET a_curl_openai_plugin::a_curl_openai_plugin)
   find_package(a_curl_openai_plugin CONFIG REQUIRED)
 endif()
-target_link_libraries(basic_text_temperature_sweep PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
+# target_link_libraries(basic_text_temperature_sweep PRIVATE a_curl_openai_plugin::a_curl_openai_plugin)
 
 target_link_libraries(basic_text_temperature_sweep PRIVATE
   a_curl_library::a_curl_library
