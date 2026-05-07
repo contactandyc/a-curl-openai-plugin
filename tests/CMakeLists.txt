@@ -9,6 +9,11 @@ cmake_minimum_required(VERSION 3.20)
 
 project(a_curl_openai_plugin_tests LANGUAGES C)
 
+if(CMAKE_PREFIX_PATH)
+  include_directories("${CMAKE_PREFIX_PATH}/include")
+  link_directories("${CMAKE_PREFIX_PATH}/lib")
+endif()
+
 set(A_BUILD_VARIANT "debug" CACHE STRING
     "Variant to link via a_curl_openai_plugin::a_curl_openai_plugin (debug|memory|static|shared)")
 set_property(CACHE A_BUILD_VARIANT PROPERTY STRINGS debug memory static shared)
@@ -28,12 +33,26 @@ endif()
 set(TEST_EXECUTABLES "")
 
 # ---- Targets ----
+# ==============================================================================
+# test_embeddings Target (Standard Test)
+# ==============================================================================
 add_executable(test_embeddings
   src/test_embeddings.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/parsers/v1/responses_output.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/plugins/v1/chat/completions.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/plugins/v1/embeddings.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/plugins/v1/responses.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/plugins/v1/responses_admin.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/plugins/v1/responses_ext.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/sinks/v1/chat/completions.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/sinks/v1/embeddings.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/sinks/v1/responses.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/sinks/v1/responses_stream.c
 )
 
 target_include_directories(test_embeddings PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/../src
+  ${CMAKE_CURRENT_SOURCE_DIR}/../include
 )
 
 list(APPEND TEST_EXECUTABLES test_embeddings)
