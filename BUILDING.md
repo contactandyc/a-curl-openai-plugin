@@ -1,7 +1,7 @@
 # BUILDING
 
 This project: **An OpenAI API Plugin for a-curl-library**
-Version: **0.1.7**
+Version: **0.1.8**
 
 ## Local build
 
